@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const User = require('../models/User');
 const Subject = require('../models/Subject');
 const Chapter = require('../models/Chapter');
 const KnowledgePoint = require('../models/KnowledgePoint');
@@ -285,6 +286,7 @@ const seedDatabase = async () => {
 
     // 清空现有数据
     await Promise.all([
+      User.deleteMany({}),
       Subject.deleteMany({}),
       Chapter.deleteMany({}),
       KnowledgePoint.deleteMany({}),
@@ -292,6 +294,18 @@ const seedDatabase = async () => {
     ]);
 
     console.log('已清空现有数据');
+
+    // 创建默认用户
+    const defaultUser = await User.create({
+      username: 'admin',
+      email: 'admin@pharmacist.com',
+      password: '123456',
+      examDate: new Date('2025-10-19'),
+      dailyStudyTime: 120
+    });
+    console.log('已创建默认用户:');
+    console.log('  邮箱: admin@pharmacist.com');
+    console.log('  密码: 123456');
 
     // 创建科目
     const createdSubjects = await Subject.insertMany(subjects);

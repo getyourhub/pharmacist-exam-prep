@@ -97,13 +97,23 @@ const Login: React.FC = () => {
         </Form>
 
         <Divider plain>
-          <Text type="secondary">或</Text>
+          <Text type="secondary">默认账号</Text>
         </Divider>
 
-        <Space style={{ width: '100%', justifyContent: 'center' }}>
-          <Text type="secondary">还没有账号？</Text>
-          <Link to="/register">立即注册</Link>
-        </Space>
+        <div style={{ 
+          background: '#f6f6f6', 
+          padding: '12px 16px', 
+          borderRadius: 8,
+          textAlign: 'center'
+        }}>
+          <Text type="secondary" style={{ fontSize: 13 }}>
+            邮箱: admin@pharmacist.com
+          </Text>
+          <br />
+          <Text type="secondary" style={{ fontSize: 13 }}>
+            密码: 123456
+          </Text>
+        </div>
       </Card>
     </div>
   );

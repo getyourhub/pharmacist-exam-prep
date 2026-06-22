@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from 'antd';
 import MainLayout from './components/Layout/MainLayout';
 import Login from './pages/Auth/Login';
-import Register from './pages/Auth/Register';
 import Dashboard from './pages/Dashboard/Dashboard';
 import QuestionBank from './pages/Questions/QuestionBank';
 import QuestionPractice from './pages/Questions/QuestionPractice';
@@ -32,7 +31,6 @@ const App: React.FC = () => {
     <AuthProvider>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
         <Route
           path="/*"
           element={
