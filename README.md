@@ -2,6 +2,78 @@
 
 一个功能全面的执业药师考试备考系统，帮助您高效学习和通过考试。
 
+## 快速开始
+
+### 方式一：使用 Docker Compose（推荐）
+
+```bash
+# 拉取项目
+git clone https://github.com/getyourhub/pharmacist-exam-prep.git
+cd pharmacist-exam-prep
+
+# 启动服务
+docker-compose up -d
+
+# 初始化数据库（首次运行）
+docker exec pharmacist-backend node seeds/index.js
+```
+
+访问 http://localhost:3000 即可使用
+
+### 方式二：直接使用 Docker Hub 镜像
+
+```bash
+# 创建 docker-compose.yml
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  backend:
+    image: getyourhub/pharmacist-backend:latest
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://mongodb:27017/pharmacist-exam
+      - JWT_SECRET=your-secret-key
+    depends_on:
+      - mongodb
+
+  frontend:
+    image: getyourhub/pharmacist-frontend:latest
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongodb_data:
+```
+
+### 方式三：本地开发
+
+```bash
+# 安装依赖
+cd server && npm install && cd ..
+cd client && npm install && cd ..
+
+# 配置环境变量
+cp server/.env.example server/.env
+
+# 初始化数据库
+cd server && npm run seed && cd ..
+
+# 启动服务
+./start.sh        # Linux/Mac
+start.bat         # Windows
+```
+
 ## 功能特性
 
 ### 1. 智能题库系统
@@ -118,6 +190,12 @@ pharmacist-exam-prep/
 - [ ] 学习计划功能
 - [ ] 模拟考试系统
 - [ ] 数据统计分析
+
+## 相关链接
+
+- **GitHub**: https://github.com/getyourhub/pharmacist-exam-prep
+- **Docker Hub 后端**: https://hub.docker.com/r/getyourhub/pharmacist-backend
+- **Docker Hub 前端**: https://hub.docker.com/r/getyourhub/pharmacist-frontend
 
 ## 许可证
 
