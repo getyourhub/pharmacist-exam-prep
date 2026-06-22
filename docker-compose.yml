@@ -15,6 +15,7 @@ services:
 
   # 后端 API 服务
   backend:
+    image: getyourhub/pharmacist-backend:latest
     build:
       context: ./server
       dockerfile: Dockerfile
@@ -33,6 +34,7 @@ services:
 
   # 前端应用
   frontend:
+    image: getyourhub/pharmacist-frontend:latest
     build:
       context: ./client
       dockerfile: Dockerfile

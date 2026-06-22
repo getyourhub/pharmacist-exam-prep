@@ -6,7 +6,7 @@ import {
   EditOutlined,
   CalendarOutlined,
   FileTextOutlined,
-  BrainOutlined,
+  BulbOutlined,
   UserOutlined,
   LogoutOutlined,
   MenuFoldOutlined,
@@ -56,7 +56,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     },
     {
       key: '/knowledge',
-      icon: <BrainOutlined />,
+      icon: <BulbOutlined />,
       label: '知识框架'
     },
     {

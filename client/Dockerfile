@@ -1,13 +1,15 @@
 # 构建阶段
-FROM node:18-alpine as build
+FROM node:20-alpine AS build
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm ci
+RUN npm install --legacy-peer-deps && npm install ajv@8 --legacy-peer-deps
 
 COPY . .
+
+RUN ls -la src/
 
 RUN npm run build
 

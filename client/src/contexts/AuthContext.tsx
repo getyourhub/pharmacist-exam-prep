@@ -7,6 +7,7 @@ interface User {
   email: string;
   avatar?: string;
   examDate?: string;
+  dailyStudyTime?: number;
   studyStats?: {
     totalQuestions: number;
     correctQuestions: number;
