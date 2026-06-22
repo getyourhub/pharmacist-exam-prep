@@ -9,16 +9,11 @@ services:
       - "27017:27017"
     volumes:
       - mongodb_data:/data/db
-    environment:
-      - MONGO_INITDB_DATABASE=pharmacist-exam
     restart: unless-stopped
 
   # 后端 API 服务
   backend:
     image: getyourhub/pharmacist-backend:latest
-    build:
-      context: ./server
-      dockerfile: Dockerfile
     container_name: pharmacist-backend
     ports:
       - "5000:5000"
@@ -26,8 +21,9 @@ services:
       - NODE_ENV=production
       - PORT=5000
       - MONGODB_URI=mongodb://mongodb:27017/pharmacist-exam
-      - JWT_SECRET=${JWT_SECRET:-your-secret-key}
+      - JWT_SECRET=pharmacist-exam-secret-key-2024
       - JWT_EXPIRE=7d
+      - WAIT_FOR_MONGO=true
     depends_on:
       - mongodb
     restart: unless-stopped
@@ -35,9 +31,6 @@ services:
   # 前端应用
   frontend:
     image: getyourhub/pharmacist-frontend:latest
-    build:
-      context: ./client
-      dockerfile: Dockerfile
     container_name: pharmacist-frontend
     ports:
       - "3000:80"

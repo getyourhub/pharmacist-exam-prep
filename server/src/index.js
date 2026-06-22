@@ -7,6 +7,20 @@ const connectDB = require('../config/db');
 // 加载环境变量
 dotenv.config();
 
+// 验证必要的环境变量
+const requiredEnvVars = ['MONGODB_URI', 'JWT_SECRET'];
+const missingEnvVars = requiredEnvVars.filter(varName => !process.env[varName]);
+
+if (missingEnvVars.length > 0) {
+  console.error('错误: 缺少必要的环境变量:', missingEnvVars.join(', '));
+  console.error('请检查 docker-compose.yml 或 .env 文件配置');
+  process.exit(1);
+}
+
+// 设置默认值
+process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+process.env.PORT = process.env.PORT || '5000';
+
 // 连接数据库
 connectDB();
 
