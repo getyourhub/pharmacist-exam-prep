@@ -9,7 +9,7 @@ RUN npm install --legacy-peer-deps && npm install ajv@8 --legacy-peer-deps
 
 COPY . .
 
-RUN ls -la src/
+ENV REACT_APP_API_URL=/api
 
 RUN npm run build
 

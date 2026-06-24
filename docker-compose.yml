@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-  # MongoDB 数据库
   mongodb:
     image: mongo:6
     container_name: pharmacist-mongodb
@@ -9,9 +8,14 @@ services:
       - "27017:27017"
     volumes:
       - mongodb_data:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
     restart: unless-stopped
 
-  # 后端 API 服务
   backend:
     image: getyourhub/pharmacist-backend:latest
     container_name: pharmacist-backend
@@ -21,14 +25,14 @@ services:
       - NODE_ENV=production
       - PORT=5000
       - MONGODB_URI=mongodb://mongodb:27017/pharmacist-exam
-      - JWT_SECRET=pharmacist-exam-secret-key-2024
+      - JWT_SECRET=pharmacist-exam-secret-2024
       - JWT_EXPIRE=7d
       - WAIT_FOR_MONGO=true
     depends_on:
-      - mongodb
+      mongodb:
+        condition: service_healthy
     restart: unless-stopped
 
-  # 前端应用
   frontend:
     image: getyourhub/pharmacist-frontend:latest
     container_name: pharmacist-frontend

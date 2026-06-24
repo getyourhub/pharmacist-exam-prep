@@ -51,12 +51,10 @@ const userSchema = new mongoose.Schema({
     lastStudyDate: { type: Date }
   },
   subjectProgress: {
-    pharmacology: { type: Number, default: 0 },      // 药理学
-    pharmaceuticalChemistry: { type: Number, default: 0 }, // 药物化学
-    pharmaceutics: { type: Number, default: 0 },      // 药剂学
-    drugAnalysis: { type: Number, default: 0 },       // 药物分析
-    pharmacyLaw: { type: Number, default: 0 },        // 药事管理与法规
-    comprehensiveSkill: { type: Number, default: 0 }  // 综合知识与技能
+    pharmacology: { type: Number, default: 0 },
+    pharmaceutics: { type: Number, default: 0 },
+    pharmacyLaw: { type: Number, default: 0 },
+    comprehensiveSkill: { type: Number, default: 0 }
   }
 }, {
   timestamps: true,

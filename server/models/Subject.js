@@ -11,7 +11,7 @@ const subjectSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    enum: ['pharmacology', 'pharmaceuticalChemistry', 'pharmaceutics', 'drugAnalysis', 'pharmacyLaw', 'comprehensiveSkill']
+    enum: ['pharmacology', 'pharmaceutics', 'pharmacyLaw', 'comprehensiveSkill']
   },
   description: {
     type: String,
