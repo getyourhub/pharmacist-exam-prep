@@ -20,7 +20,7 @@ services:
     image: getyourhub/pharmacist-backend:latest
     container_name: pharmacist-backend
     ports:
-      - "5000:5000"
+      - "5001:5000"
     environment:
       - NODE_ENV=production
       - PORT=5000
