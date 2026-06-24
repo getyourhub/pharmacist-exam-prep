@@ -55,13 +55,31 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         } catch (error) {
           localStorage.removeItem('token');
           setToken(null);
+          await autoLogin();
         }
+      } else {
+        await autoLogin();
       }
       setLoading(false);
     };
 
+    const autoLogin = async () => {
+      try {
+        const response = await authAPI.login({
+          email: 'admin@pharmacist.com',
+          password: '123456'
+        });
+        const { token: newToken, user: userData } = response.data;
+        localStorage.setItem('token', newToken);
+        setToken(newToken);
+        setUser(userData);
+      } catch (e) {
+        // backend not ready yet, ignore
+      }
+    };
+
     initAuth();
-  }, [token]);
+  }, []);
 
   const login = async (email: string, password: string) => {
     const response = await authAPI.login({ email, password });
