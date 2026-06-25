@@ -1,52 +1,31 @@
-const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-// 保护路由中间件
-const protect = async (req, res, next) => {
-  let token;
-
-  if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
-    token = req.headers.authorization.split(' ')[1];
-  }
-
-  if (!token) {
-    return res.status(401).json({
-      success: false,
-      message: '未授权访问，请先登录'
-    });
-  }
-
+// 默认用户中间件 - 无需登录，自动使用本地默认用户
+const defaultUser = async (req, res, next) => {
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = await User.findById(decoded.id);
+    // 查找或创建默认用户
+    let user = await User.findOne({ email: 'local@pharmacist.com' });
     
-    if (!req.user) {
-      return res.status(401).json({
-        success: false,
-        message: '用户不存在'
+    if (!user) {
+      user = await User.create({
+        username: '学习者',
+        email: 'local@pharmacist.com',
+        password: 'local-no-login-2024',
+        examDate: new Date('2026-10-19'),
+        dailyStudyTime: 120
       });
     }
-
+    
+    req.user = user;
     next();
   } catch (error) {
-    return res.status(401).json({
-      success: false,
-      message: 'Token无效，请重新登录'
-    });
+    console.error('默认用户创建失败:', error.message);
+    next();
   }
 };
 
-// 角色授权
-const authorize = (...roles) => {
-  return (req, res, next) => {
-    if (!roles.includes(req.user.role)) {
-      return res.status(403).json({
-        success: false,
-        message: '无权执行此操作'
-      });
-    }
-    next();
-  };
-};
+// 保留旧接口兼容
+const protect = defaultUser;
+const authorize = (...roles) => (req, res, next) => next();
 
-module.exports = { protect, authorize };
+module.exports = { protect, authorize, defaultUser };

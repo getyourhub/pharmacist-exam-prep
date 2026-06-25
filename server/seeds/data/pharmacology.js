@@ -526,6 +526,234 @@ const pharmacologyQuestions = [
     answer: 'A',
     explanation: '红霉素是大环内酯类抗生素的代表药物，通过抑制细菌蛋白质合成（与50S亚基结合）发挥抑菌作用。同类药物还有阿奇霉素、克拉霉素等。',
     difficulty: 1, importance: 'medium', source: '练习题', tags: ['药理学', '化疗', '大环内酯类']
+  },
+  // ========== 补充题目 - 药理学总论 ==========
+  {
+    content: '药物的效能是指',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 1,
+    options: [
+      { label: 'A', content: '药物的最大效应', isCorrect: true },
+      { label: 'B', content: '引起等效反应的剂量', isCorrect: false },
+      { label: 'C', content: '药物的安全范围', isCorrect: false },
+      { label: 'D', content: '药物的治疗指数', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '效能（最大效应）是指药物所能产生的最大效应，反映药物的内在活性。效价强度是指引起等效反应的剂量，两者是不同概念。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2022, tags: ['药理学', '总论', '效能']
+  },
+  {
+    content: '药物的血浆蛋白结合率越高，则',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 1,
+    options: [
+      { label: 'A', content: '药物作用持续时间越长', isCorrect: true },
+      { label: 'B', content: '药物起效越快', isCorrect: false },
+      { label: 'C', content: '药物代谢越快', isCorrect: false },
+      { label: 'D', content: '药物排泄越快', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '血浆蛋白结合型药物暂时失去药理活性，起到储存库作用。结合率越高，游离药物浓度越低，消除越慢，作用持续时间越长。',
+    difficulty: 3, importance: 'medium', source: '真题', year: 2021, tags: ['药理学', '总论', '蛋白结合']
+  },
+  {
+    content: '肝药酶诱导剂的特点是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 1,
+    options: [
+      { label: 'A', content: '加速自身和其他药物的代谢', isCorrect: true },
+      { label: 'B', content: '减慢自身和其他药物的代谢', isCorrect: false },
+      { label: 'C', content: '只加速自身代谢', isCorrect: false },
+      { label: 'D', content: '只加速其他药物代谢', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '肝药酶诱导剂（如利福平、苯巴比妥）能加速CYP450酶系的活性，不仅加速其他药物的代谢，也会加速自身的代谢（自身诱导）。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2020, tags: ['药理学', '总论', '肝药酶']
+  },
+  // ========== 补充题目 - 传出神经系统 ==========
+  {
+    content: '阿托品的禁忌证不包括',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 2,
+    options: [
+      { label: 'A', content: '青光眼', isCorrect: false },
+      { label: 'B', content: '前列腺增生', isCorrect: false },
+      { label: 'C', content: '胃肠道痉挛', isCorrect: true },
+      { label: 'D', content: '幽门梗阻', isCorrect: false }
+    ],
+    answer: 'C',
+    explanation: '阿托品的禁忌证包括青光眼（升高眼压）、前列腺增生（加重排尿困难）、幽门梗阻（加重胃排空障碍）。胃肠道痉挛是阿托品的适应证。',
+    difficulty: 2, importance: 'high', source: '真题', year: 2022, tags: ['药理学', '传出神经', '阿托品']
+  },
+  {
+    content: '异丙肾上腺素的药理作用不包括',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 2,
+    options: [
+      { label: 'A', content: '加快心率', isCorrect: false },
+      { label: 'B', content: '扩张支气管', isCorrect: false },
+      { label: 'C', content: '收缩血管', isCorrect: true },
+      { label: 'D', content: '增强心肌收缩力', isCorrect: false }
+    ],
+    answer: 'C',
+    explanation: '异丙肾上腺素是β受体激动剂，激动β1加快心率、增强收缩力，激动β2扩张支气管和骨骼肌血管（血管扩张而非收缩）。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2021, tags: ['药理学', '传出神经', '异丙肾上腺素']
+  },
+  // ========== 补充题目 - 中枢神经系统 ==========
+  {
+    content: '左旋多巴治疗帕金森病的机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 3,
+    options: [
+      { label: 'A', content: '在脑内转化为多巴胺，补充纹状体中多巴胺的不足', isCorrect: true },
+      { label: 'B', content: '直接激动多巴胺受体', isCorrect: false },
+      { label: 'C', content: '抑制多巴胺的代谢', isCorrect: false },
+      { label: 'D', content: '促进多巴胺的释放', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '左旋多巴是多巴胺的前体，能通过血脑屏障，在脑内经多巴脱羧酶转化为多巴胺，补充纹状体中多巴胺的不足，改善帕金森病症状。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2022, tags: ['药理学', '中枢神经', '左旋多巴']
+  },
+  {
+    content: '丙戊酸钠的抗癫痫机制不包括',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 3,
+    options: [
+      { label: 'A', content: '增强GABA的作用', isCorrect: false },
+      { label: 'B', content: '阻滞Na+通道', isCorrect: false },
+      { label: 'C', content: '阻滞T型Ca2+通道', isCorrect: false },
+      { label: 'D', content: '激动阿片受体', isCorrect: true }
+    ],
+    answer: 'D',
+    explanation: '丙戊酸钠的抗癫痫机制包括增强GABA作用、阻滞Na+通道、阻滞T型Ca2+通道。不涉及阿片受体。',
+    difficulty: 3, importance: 'medium', source: '练习题', tags: ['药理学', '中枢神经', '丙戊酸钠']
+  },
+  // ========== 补充题目 - 心血管系统 ==========
+  {
+    content: '下列关于硝苯地平的叙述，正确的是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 4,
+    options: [
+      { label: 'A', content: '是二氢吡啶类钙通道阻滞药，主要扩张动脉', isCorrect: true },
+      { label: 'B', content: '主要用于抗心律失常', isCorrect: false },
+      { label: 'C', content: '主要扩张静脉', isCorrect: false },
+      { label: 'D', content: '减慢心率作用最强', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '硝苯地平是二氢吡啶类CCB，主要扩张动脉血管，降压效果强。对心脏传导影响小，不用于抗心律失常。维拉帕米和地尔硫卓对心脏作用较强。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2022, tags: ['药理学', '心血管', '硝苯地平']
+  },
+  {
+    content: '下列药物中，具有降压和减少尿蛋白双重作用的是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 4,
+    options: [
+      { label: 'A', content: '氯沙坦', isCorrect: true },
+      { label: 'B', content: '硝苯地平', isCorrect: false },
+      { label: 'C', content: '氢氯噻嗪', isCorrect: false },
+      { label: 'D', content: '普萘洛尔', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '氯沙坦是ARB，阻断AngII的AT1受体，扩张出球小动脉，降低肾小球内压，减少尿蛋白。同时具有降压和肾脏保护作用。ACEI（卡托普利）也有此作用。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2021, tags: ['药理学', '心血管', 'ARB']
+  },
+  // ========== 补充题目 - 内脏系统 ==========
+  {
+    content: '沙丁胺醇的平喘机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 5,
+    options: [
+      { label: 'A', content: '选择性激动β2受体，松弛支气管平滑肌', isCorrect: true },
+      { label: 'B', content: '抑制磷酸二酯酶', isCorrect: false },
+      { label: 'C', content: '阻断M受体', isCorrect: false },
+      { label: 'D', content: '抑制过敏介质释放', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '沙丁胺醇是选择性β2受体激动剂，主要激动支气管平滑肌上的β2受体，使cAMP增加，平滑肌松弛。对β1受体影响小，心血管不良反应少。',
+    difficulty: 2, importance: 'high', source: '真题', year: 2022, tags: ['药理学', '内脏', '沙丁胺醇']
+  },
+  // ========== 补充题目 - 内分泌系统 ==========
+  {
+    content: '格列本脲的降糖机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 6,
+    options: [
+      { label: 'A', content: '促进胰岛β细胞释放胰岛素', isCorrect: true },
+      { label: 'B', content: '减少肝糖输出', isCorrect: false },
+      { label: 'C', content: '延缓碳水化合物吸收', isCorrect: false },
+      { label: 'D', content: '增加胰岛素敏感性', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '格列本脲是磺脲类降糖药，通过阻断β细胞膜上的ATP敏感性K+通道→去极化→Ca2+内流→胰岛素释放。可引起低血糖。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2021, tags: ['药理学', '内分泌', '磺脲类']
+  },
+  {
+    content: '硫脲类抗甲状腺药最严重的不良反应是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 6,
+    options: [
+      { label: 'A', content: '粒细胞缺乏症', isCorrect: true },
+      { label: 'B', content: '药疹', isCorrect: false },
+      { label: 'C', content: '肝损害', isCorrect: false },
+      { label: 'D', content: '关节痛', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '硫脲类抗甲状腺药最严重的不良反应是粒细胞缺乏症，发生率低但可致命。用药期间应定期检查血象，如出现发热、咽痛应立即停药检查。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2020, tags: ['药理学', '内分泌', '硫脲类']
+  },
+  // ========== 补充题目 - 化学治疗药物 ==========
+  {
+    content: '四环素类抗生素的抗菌机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 7,
+    options: [
+      { label: 'A', content: '与细菌核糖体30S亚基结合，阻止氨基酰-tRNA进入A位', isCorrect: true },
+      { label: 'B', content: '与50S亚基结合', isCorrect: false },
+      { label: 'C', content: '抑制DNA旋转酶', isCorrect: false },
+      { label: 'D', content: '抑制细胞壁合成', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '四环素类与细菌核糖体30S亚基结合，阻止氨基酰-tRNA进入A位→抑制蛋白质合成→抑菌。氯霉素和大环内酯类与50S亚基结合。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2022, tags: ['药理学', '化疗', '四环素类']
+  },
+  {
+    content: '万古霉素的抗菌机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 7,
+    options: [
+      { label: 'A', content: '与肽聚糖前体末端D-丙氨酰-D-丙氨酸结合，阻止细胞壁合成', isCorrect: true },
+      { label: 'B', content: '抑制DNA旋转酶', isCorrect: false },
+      { label: 'C', content: '抑制蛋白质合成', isCorrect: false },
+      { label: 'D', content: '损伤细胞膜', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '万古霉素与肽聚糖前体末端的D-丙氨酰-D-丙氨酸（D-Ala-D-Ala）结合，阻止肽聚糖的合成和交联。主要用于耐甲氧西林金黄色葡萄球菌（MRSA）感染。',
+    difficulty: 4, importance: 'high', source: '真题', year: 2021, tags: ['药理学', '化疗', '万古霉素']
+  },
+  {
+    content: '磺胺类药物的抗菌机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 7,
+    options: [
+      { label: 'A', content: '抑制二氢叶酸合成酶，阻碍叶酸合成', isCorrect: true },
+      { label: 'B', content: '抑制二氢叶酸还原酶', isCorrect: false },
+      { label: 'C', content: '抑制DNA旋转酶', isCorrect: false },
+      { label: 'D', content: '抑制细胞壁合成', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '磺胺类药物与PABA竞争二氢叶酸合成酶→阻碍二氢叶酸合成→影响核酸合成→抑菌。甲氧苄啶（TMP）抑制二氢叶酸还原酶，两者合用（复方新诺明）可双重阻断叶酸代谢。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2020, tags: ['药理学', '化疗', '磺胺类']
+  },
+  {
+    content: '氯霉素最严重的不良反应是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 7,
+    options: [
+      { label: 'A', content: '再生障碍性贫血', isCorrect: true },
+      { label: 'B', content: '灰婴综合征', isCorrect: false },
+      { label: 'C', content: '二重感染', isCorrect: false },
+      { label: 'D', content: '胃肠道反应', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '氯霉素最严重的不良反应是再生障碍性贫血（与剂量无关，不可逆）。灰婴综合征是新生儿和早产儿因肝脏代谢能力不足导致的毒性反应。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2019, tags: ['药理学', '化疗', '氯霉素']
+  },
+  {
+    content: '两性霉素B的抗真菌机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 7,
+    options: [
+      { label: 'A', content: '与真菌细胞膜上的麦角固醇结合，形成孔道', isCorrect: true },
+      { label: 'B', content: '抑制麦角固醇合成', isCorrect: false },
+      { label: 'C', content: '抑制几丁质合成', isCorrect: false },
+      { label: 'D', content: '抑制DNA合成', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '两性霉素B与真菌细胞膜上的麦角固醇结合，形成跨膜孔道→细胞内容物外漏→真菌死亡。是广谱抗真菌药，但肾毒性大。',
+    difficulty: 4, importance: 'medium', source: '真题', year: 2022, tags: ['药理学', '化疗', '两性霉素B']
   }
 ];
 

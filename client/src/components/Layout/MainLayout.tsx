@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layout, Menu, Avatar, Dropdown, Space, Typography } from 'antd';
+import { Layout, Menu, Avatar, Space, Typography } from 'antd';
 import {
   DashboardOutlined,
   BookOutlined,
@@ -7,10 +7,9 @@ import {
   CalendarOutlined,
   FileTextOutlined,
   BulbOutlined,
-  UserOutlined,
-  LogoutOutlined,
   MenuFoldOutlined,
-  MenuUnfoldOutlined
+  MenuUnfoldOutlined,
+  UserOutlined
 } from '@ant-design/icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
@@ -26,7 +25,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
 
   const menuItems = [
     {
@@ -78,27 +77,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           label: '考试历史'
         }
       ]
-    }
-  ];
-
-  const userMenuItems = [
-    {
-      key: 'profile',
-      icon: <UserOutlined />,
-      label: '个人中心',
-      onClick: () => navigate('/profile')
-    },
-    {
-      type: 'divider' as const
-    },
-    {
-      key: 'logout',
-      icon: <LogoutOutlined />,
-      label: '退出登录',
-      onClick: () => {
-        logout();
-        navigate('/login');
-      }
     }
   ];
 
@@ -174,15 +152,10 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               }
             )}
           </Space>
-          <Dropdown menu={{ items: userMenuItems }} placement="bottomRight">
-            <Space style={{ cursor: 'pointer' }}>
-              <Avatar
-                style={{ backgroundColor: '#1890ff' }}
-                icon={<UserOutlined />}
-              />
-              {!collapsed && <Text>{user?.username}</Text>}
-            </Space>
-          </Dropdown>
+          <Space>
+            <Avatar style={{ backgroundColor: '#1890ff' }} icon={<UserOutlined />} />
+            {!collapsed && <Text>{user?.username || '学习者'}</Text>}
+          </Space>
         </Header>
         <Content
           style={{

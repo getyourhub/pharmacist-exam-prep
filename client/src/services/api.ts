@@ -10,13 +10,9 @@ const api: AxiosInstance = axios.create({
   }
 });
 
-// 请求拦截器
+// 请求拦截器 - 无需认证token
 api.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
     return config;
   },
   (error) => {
@@ -31,14 +27,7 @@ api.interceptors.response.use(
   },
   (error) => {
     if (error.response) {
-      const { status, data } = error.response;
-      
-      if (status === 401) {
-        localStorage.removeItem('token');
-        window.location.href = '/login';
-      }
-      
-      return Promise.reject(data);
+      return Promise.reject(error.response.data);
     }
     return Promise.reject(error);
   }

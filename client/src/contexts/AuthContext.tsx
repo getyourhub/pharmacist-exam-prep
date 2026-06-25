@@ -43,39 +43,27 @@ interface AuthProviderProps {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
+  const [token, setToken] = useState<string | null>('local-token-no-auth');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const initAuth = async () => {
-      if (token) {
-        try {
-          const response = await authAPI.getMe();
+      try {
+        // 直接获取默认用户信息，无需登录
+        const response = await authAPI.getMe();
+        if (response.data) {
           setUser(response.data);
-        } catch (error) {
-          localStorage.removeItem('token');
-          setToken(null);
-          await autoLogin();
+        } else {
+          // 如果获取失败，尝试登录获取
+          const loginRes = await authAPI.login({ email: '', password: '' });
+          const { token: newToken, user: userData } = loginRes.data;
+          setToken(newToken);
+          setUser(userData);
         }
-      } else {
-        await autoLogin();
+      } catch (e) {
+        console.warn('初始化用户信息失败:', e);
       }
       setLoading(false);
-    };
-
-    const autoLogin = async () => {
-      try {
-        const response = await authAPI.login({
-          email: 'admin@pharmacist.com',
-          password: '123456'
-        });
-        const { token: newToken, user: userData } = response.data;
-        localStorage.setItem('token', newToken);
-        setToken(newToken);
-        setUser(userData);
-      } catch (e) {
-        // backend not ready yet, ignore
-      }
     };
 
     initAuth();
@@ -84,7 +72,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const login = async (email: string, password: string) => {
     const response = await authAPI.login({ email, password });
     const { token: newToken, user: userData } = response.data;
-    localStorage.setItem('token', newToken);
     setToken(newToken);
     setUser(userData);
   };
@@ -92,15 +79,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const register = async (username: string, email: string, password: string) => {
     const response = await authAPI.register({ username, email, password });
     const { token: newToken, user: userData } = response.data;
-    localStorage.setItem('token', newToken);
     setToken(newToken);
     setUser(userData);
   };
 
   const logout = () => {
-    localStorage.removeItem('token');
-    setToken(null);
-    setUser(null);
+    // 无实际登出操作，保持默认用户
   };
 
   const updateUser = (userData: Partial<User>) => {
@@ -112,7 +96,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const value: AuthContextType = {
     user,
     token,
-    isAuthenticated: !!token && !!user,
+    isAuthenticated: true, // 始终已认证
     loading,
     login,
     register,

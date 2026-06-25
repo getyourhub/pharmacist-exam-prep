@@ -10,9 +10,7 @@ const { Title, Text } = Typography;
 const Profile: React.FC = () => {
   const { user, updateUser } = useAuth();
   const [loading, setLoading] = useState(false);
-  const [passwordLoading, setPasswordLoading] = useState(false);
   const [form] = Form.useForm();
-  const [passwordForm] = Form.useForm();
 
   const handleUpdateProfile = async (values: any) => {
     setLoading(true);
@@ -27,22 +25,6 @@ const Profile: React.FC = () => {
       message.error(error.message || '更新失败');
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleChangePassword = async (values: any) => {
-    setPasswordLoading(true);
-    try {
-      await authAPI.updatePassword({
-        currentPassword: values.currentPassword,
-        newPassword: values.newPassword
-      });
-      message.success('密码修改成功');
-      passwordForm.resetFields();
-    } catch (error: any) {
-      message.error(error.message || '密码修改失败');
-    } finally {
-      setPasswordLoading(false);
     }
   };
 
@@ -171,67 +153,7 @@ const Profile: React.FC = () => {
               </Form>
             </Card>
 
-            {/* 修改密码 */}
-            <Card title="修改密码">
-              <Form
-                form={passwordForm}
-                layout="vertical"
-                onFinish={handleChangePassword}
-              >
-                <Row gutter={16}>
-                  <Col xs={24} sm={8}>
-                    <Form.Item
-                      name="currentPassword"
-                      label="当前密码"
-                      rules={[{ required: true, message: '请输入当前密码' }]}
-                    >
-                      <Input.Password />
-                    </Form.Item>
-                  </Col>
-                  <Col xs={24} sm={8}>
-                    <Form.Item
-                      name="newPassword"
-                      label="新密码"
-                      rules={[
-                        { required: true, message: '请输入新密码' },
-                        { min: 6, message: '密码至少6个字符' }
-                      ]}
-                    >
-                      <Input.Password />
-                    </Form.Item>
-                  </Col>
-                  <Col xs={24} sm={8}>
-                    <Form.Item
-                      name="confirmPassword"
-                      label="确认新密码"
-                      dependencies={['newPassword']}
-                      rules={[
-                        { required: true, message: '请确认新密码' },
-                        ({ getFieldValue }) => ({
-                          validator(_, value) {
-                            if (!value || getFieldValue('newPassword') === value) {
-                              return Promise.resolve();
-                            }
-                            return Promise.reject(new Error('两次输入的密码不一致'));
-                          }
-                        })
-                      ]}
-                    >
-                      <Input.Password />
-                    </Form.Item>
-                  </Col>
-                </Row>
-                <Form.Item>
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    loading={passwordLoading}
-                  >
-                    修改密码
-                  </Button>
-                </Form.Item>
-              </Form>
-            </Card>
+
           </Space>
         </Col>
       </Row>
