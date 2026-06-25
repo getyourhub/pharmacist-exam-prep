@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第二章 液体制剂 - 思维导图</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  #mindmap { width: 100vw; height: 100vh; }
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: #52c41a; color: white; padding: 12px 24px;
+    font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header .subject { font-size: 13px; opacity: 0.85; }
+  .legend {
+    position: fixed; bottom: 16px; right: 16px; z-index: 100;
+    background: white; padding: 12px 16px; border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12); font-size: 12px; color: #666;
+  }
+  .legend b { color: #333; }
+</style>
+</head>
+<body>
+<div class="header">
+  <span>🧠 第二章 液体制剂</span>
+  <span class="subject">药剂学</span>
+</div>
+<svg id="mindmap"></svg>
+<div class="legend">
+  <b>操作：</b> 鼠标拖拽移动 · 滚轮缩放 · 点击节点展开/折叠
+</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.15.4"></script>
+<script>
+  const md = "# 液体制剂\n\n## 分类（按分散系统）\n- **溶液型**\n  - 分子/离子分散\n  - 溶液剂、糖浆剂\n- **胶体溶胶型**\n  - 高分子/胶粒分散\n  - 明胶溶液\n- **乳剂型**\n  - 液滴分散\n  - O/W型、W/O型\n- **混悬型**\n  - 固体微粒分散\n  - 混悬剂\n\n## 表面活性剂\n- 分类\n  - 阴离子型（十二烷基硫酸钠）\n  - 阳离子型（苯扎溴铵）\n  - 两性离子型（卵磷脂）\n  - 非离子型（吐温、司盘）\n- **HLB值**（亲水亲油平衡）\n  - HLB越大 → 越亲水\n  - 3-6 → W/O乳化剂\n  - 8-18 → O/W乳化剂\n- **CMC**（临界胶束浓度）\n\n## 注射用水 vs 纯化水\n- **纯化水**\n  - 蒸馏/离子交换/反渗透\n  - 不要求无热原\n- **注射用水**\n  - 纯化水经蒸馏\n  - ✅要求无热原\n  - 用于注射剂配制\n\n## 口诀速记\n- 🎯 HLB越大越亲水，3-6做W/O，8-18做O/W";
+  const { Transformer } = markmap;
+  const { Markmap } = window.markmap;
+  const transformer = new Transformer();
+  const { root } = transformer.transform(md);
+  const mm = Markmap.create('#mindmap', {
+    colorFreezeLevel: 2,
+    initialExpandLevel: 3,
+    paddingX: 16,
+    autoFit: true,
+    duration: 300
+  }, root);
+  setTimeout(() => mm.fit(), 500);
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第七章 化学治疗药物 - 思维导图</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  #mindmap { width: 100vw; height: 100vh; }
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: #1890ff; color: white; padding: 12px 24px;
+    font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header .subject { font-size: 13px; opacity: 0.85; }
+  .legend {
+    position: fixed; bottom: 16px; right: 16px; z-index: 100;
+    background: white; padding: 12px 16px; border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12); font-size: 12px; color: #666;
+  }
+  .legend b { color: #333; }
+</style>
+</head>
+<body>
+<div class="header">
+  <span>🧠 第七章 化学治疗药物</span>
+  <span class="subject">药理学</span>
+</div>
+<svg id="mindmap"></svg>
+<div class="legend">
+  <b>操作：</b> 鼠标拖拽移动 · 滚轮缩放 · 点击节点展开/折叠
+</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.15.4"></script>
+<script>
+  const md = "# 化学治疗药物\n\n## 五大抗菌机制\n1. **抑制细胞壁合成**\n   - β-内酰胺类、万古霉素\n2. **抑制蛋白质合成**\n   - 氨基糖苷类（30S）\n   - 大环内酯类（50S）\n   - 四环素类（30S）\n3. **抑制核酸合成**\n   - 喹诺酮类（DNA旋转酶）\n   - 利福平（RNA聚合酶）\n4. **影响细胞膜通透性**\n   - 多肽类、多烯类\n5. **影响叶酸代谢**\n   - 磺胺类、甲氧苄啶\n\n## β-内酰胺类\n- **青霉素类**\n  - 天然：青霉素G\n  - 耐酶：苯唑西林\n  - 广谱：氨苄西林、阿莫西林\n  - 抗铜绿：哌拉西林\n- **头孢类**（代数↑ → 抗阴性↑ 肾毒性↓）\n  - 一代：头孢唑林\n  - 二代：头孢呋辛\n  - 三代：头孢曲松\n  - 四代：头孢吡肟\n\n## 氨基糖苷类\n- 链霉素、庆大霉素、阿米卡星\n- 与30S亚基结合 → 杀菌\n- 🔥 三毒性\n  - 耳毒性（第八对脑神经）\n  - 肾毒性（近曲小管）\n  - 神经肌肉阻滞\n- 链霉素：抗结核一线\n\n## 喹诺酮类\n- 诺氟沙星、环丙沙星、左氧氟沙星\n- 抑制DNA旋转酶 → 杀菌\n- 广谱、口服好\n- ⚠️ 禁用于儿童孕妇（软骨损害）\n\n## 抗结核药（五药）\n- **异烟肼 INH**\n  - 抑制分枝菌酸\n  - 肝毒性+周围神经炎\n- **利福平 RFP**\n  - 抑制RNA聚合酶\n  - 肝毒性+流感样综合征\n- **乙胺丁醇 EMB**\n  - 视神经炎\n- **吡嗪酰胺 PZA**\n- **链霉素 SM**\n- 原则：早期联合适量规律全程\n\n## 抗真菌药\n- 两性霉素B（广谱，肾毒大）\n- 氟康唑（念珠菌、隐球菌）\n- 特比萘芬（皮肤癣菌）\n\n## 口诀速记\n- 🎯 壁蛋核酸膜叶酸，五机制记心间\n- 🎯 青霉素四类：天耐广铜\n- 🎯 氨基糖苷三十S，耳肾神经三毒害\n- 🎯 喹诺酮抑旋转酶，儿童孕妇不能用\n- 🎯 异利乙吡链五药，早联适规全程疗";
+  const { Transformer } = markmap;
+  const { Markmap } = window.markmap;
+  const transformer = new Transformer();
+  const { root } = transformer.transform(md);
+  const mm = Markmap.create('#mindmap', {
+    colorFreezeLevel: 2,
+    initialExpandLevel: 3,
+    paddingX: 16,
+    autoFit: true,
+    duration: 300
+  }, root);
+  setTimeout(() => mm.fit(), 500);
+</script>
+</body>
+</html>

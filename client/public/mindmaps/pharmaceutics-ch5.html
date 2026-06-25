@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第五章 半固体制剂 - 思维导图</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  #mindmap { width: 100vw; height: 100vh; }
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: #52c41a; color: white; padding: 12px 24px;
+    font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header .subject { font-size: 13px; opacity: 0.85; }
+  .legend {
+    position: fixed; bottom: 16px; right: 16px; z-index: 100;
+    background: white; padding: 12px 16px; border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12); font-size: 12px; color: #666;
+  }
+  .legend b { color: #333; }
+</style>
+</head>
+<body>
+<div class="header">
+  <span>🧠 第五章 半固体制剂</span>
+  <span class="subject">药剂学</span>
+</div>
+<svg id="mindmap"></svg>
+<div class="legend">
+  <b>操作：</b> 鼠标拖拽移动 · 滚轮缩放 · 点击节点展开/折叠
+</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.15.4"></script>
+<script>
+  const md = "# 半固体制剂\n\n## 软膏剂\n- 基质分类\n  - **油脂性基质**\n    - 凡士林、羊毛脂\n    - 润滑无刺激\n    - 不易洗除\n  - **水溶性基质**\n    - PEG\n    - 易洗除，释放快\n  - **乳剂型基质**\n    - O/W型、W/O型\n    - 易涂布，不油腻\n- 制备方法\n  - 研和法\n  - 熔和法\n  - 乳化法\n\n## 栓剂\n- 基质\n  - **油脂性**\n    - 可可豆脂\n    - 半合成脂肪酸甘油酯\n  - **水溶性**\n    - 甘油明胶\n    - PEG\n- 特点\n  - 直肠吸收\n  - 50-70%不经过首过效应\n- 置换价\n  - 药物重量/同体积基质重量";
+  const { Transformer } = markmap;
+  const { Markmap } = window.markmap;
+  const transformer = new Transformer();
+  const { root } = transformer.transform(md);
+  const mm = Markmap.create('#mindmap', {
+    colorFreezeLevel: 2,
+    initialExpandLevel: 3,
+    paddingX: 16,
+    autoFit: true,
+    duration: 300
+  }, root);
+  setTimeout(() => mm.fit(), 500);
+</script>
+</body>
+</html>

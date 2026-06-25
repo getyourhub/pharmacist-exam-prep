@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第六章 内分泌系统药理学 - 思维导图</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  #mindmap { width: 100vw; height: 100vh; }
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: #1890ff; color: white; padding: 12px 24px;
+    font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header .subject { font-size: 13px; opacity: 0.85; }
+  .legend {
+    position: fixed; bottom: 16px; right: 16px; z-index: 100;
+    background: white; padding: 12px 16px; border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12); font-size: 12px; color: #666;
+  }
+  .legend b { color: #333; }
+</style>
+</head>
+<body>
+<div class="header">
+  <span>🧠 第六章 内分泌系统药理学</span>
+  <span class="subject">药理学</span>
+</div>
+<svg id="mindmap"></svg>
+<div class="legend">
+  <b>操作：</b> 鼠标拖拽移动 · 滚轮缩放 · 点击节点展开/折叠
+</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.15.4"></script>
+<script>
+  const md = "# 内分泌系统药理学\n\n## 糖皮质激素\n- 五大作用（三抗一抑一影响）\n  - **抗炎**（强大，各期炎症）\n  - **免疫抑制**\n  - **抗毒**（提高内毒素耐受）\n  - **抗休克**（大剂量）\n  - **血液系统**\n    - ↑红细胞、血小板、中性粒\n    - ↓淋巴细胞\n- 不良反应\n  - 类肾上腺皮质功能亢进\n  - 诱发加重感染\n  - 骨质疏松\n  - 消化性溃疡\n  - 糖尿病\n\n## 降血糖药\n- **胰岛素**\n  - 促葡萄糖摄取利用\n  - 抑制糖原分解和糖异生\n  - 用途：1型+重症2型\n- **磺脲类**（格列本脲）\n  - 促胰岛素分泌\n  - 可致低血糖\n- **双胍类**（二甲双胍）\n  - 减少肝糖输出\n  - 🔥 不引起低血糖\n  - 2型首选药\n- **α-糖苷酶抑制剂**（阿卡波糖）\n  - 延缓碳水化合物吸收\n- **噻唑烷二酮类**（罗格列酮）\n  - 增加胰岛素敏感性\n\n## 抗甲状腺药\n- **硫脲类**（丙硫氧嘧啶）\n  - 抑制过氧化物酶\n  - 阻止碘活化和酪氨酸碘化\n  - 最严重不良反应：粒细胞缺乏\n- **碘及碘化物**\n  - 大剂量抑制甲状腺激素释放\n- **β受体阻断药**\n  - 辅助治疗甲亢症状\n\n## 口诀速记\n- 🎯 糖皮质三抗一抑：炎毒休免\n- 🎯 胰岛素直接降，磺脲促分泌，双胍减输出\n- 🎯 硫脲抑合成，大碘抑释放";
+  const { Transformer } = markmap;
+  const { Markmap } = window.markmap;
+  const transformer = new Transformer();
+  const { root } = transformer.transform(md);
+  const mm = Markmap.create('#mindmap', {
+    colorFreezeLevel: 2,
+    initialExpandLevel: 3,
+    paddingX: 16,
+    autoFit: true,
+    duration: 300
+  }, root);
+  setTimeout(() => mm.fit(), 500);
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第六章 中药管理 - 思维导图</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  #mindmap { width: 100vw; height: 100vh; }
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: #722ed1; color: white; padding: 12px 24px;
+    font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header .subject { font-size: 13px; opacity: 0.85; }
+  .legend {
+    position: fixed; bottom: 16px; right: 16px; z-index: 100;
+    background: white; padding: 12px 16px; border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12); font-size: 12px; color: #666;
+  }
+  .legend b { color: #333; }
+</style>
+</head>
+<body>
+<div class="header">
+  <span>🧠 第六章 中药管理</span>
+  <span class="subject">药事管理</span>
+</div>
+<svg id="mindmap"></svg>
+<div class="legend">
+  <b>操作：</b> 鼠标拖拽移动 · 滚轮缩放 · 点击节点展开/折叠
+</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.15.4"></script>
+<script>
+  const md = "# 中药管理\n\n## 中药分类\n- **中药材**\n  - 原药材\n  - 部分实行批准文号管理\n    - 如：罂粟壳\n- **中药饮片**\n  - 必须按国家药品标准炮制\n- **中成药**\n  - 须取得药品批准文号\n\n## 中药保护品种\n- **一级保护**\n  - 30年、20年、10年\n  - 对特定疾病有特殊疗效\n- **二级保护**\n  - 7年\n  - 符合一级保护条件或已满一级保护期\n\n## 中药材管理\n- 中药材GAP（种植/养殖规范）\n- 道地药材保护\n- 中药材追溯体系";
+  const { Transformer } = markmap;
+  const { Markmap } = window.markmap;
+  const transformer = new Transformer();
+  const { root } = transformer.transform(md);
+  const mm = Markmap.create('#mindmap', {
+    colorFreezeLevel: 2,
+    initialExpandLevel: 3,
+    paddingX: 16,
+    autoFit: true,
+    duration: 300
+  }, root);
+  setTimeout(() => mm.fit(), 500);
+</script>
+</body>
+</html>

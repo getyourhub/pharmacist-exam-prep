@@ -56,7 +56,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     {
       key: '/knowledge',
       icon: <BulbOutlined />,
-      label: '知识框架'
+      label: '知识框架与思维导图'
     },
     {
       key: '/study-plan',

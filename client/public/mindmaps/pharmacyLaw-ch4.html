@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第四章 药品经营管理 - 思维导图</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  #mindmap { width: 100vw; height: 100vh; }
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: #722ed1; color: white; padding: 12px 24px;
+    font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header .subject { font-size: 13px; opacity: 0.85; }
+  .legend {
+    position: fixed; bottom: 16px; right: 16px; z-index: 100;
+    background: white; padding: 12px 16px; border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12); font-size: 12px; color: #666;
+  }
+  .legend b { color: #333; }
+</style>
+</head>
+<body>
+<div class="header">
+  <span>🧠 第四章 药品经营管理</span>
+  <span class="subject">药事管理</span>
+</div>
+<svg id="mindmap"></svg>
+<div class="legend">
+  <b>操作：</b> 鼠标拖拽移动 · 滚轮缩放 · 点击节点展开/折叠
+</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.15.4"></script>
+<script>
+  const md = "# 药品经营管理\n\n## 处方管理办法\n- 有效期：**当日有效**\n- 处方颜色\n  - 普通处方 → 白色\n  - 急诊处方 → 淡黄色\n  - 儿科处方 → 淡绿色\n  - 麻醉/精一 → 淡红色\n  - 精二 → 白色\n- 保存期限\n  - 普通处方 → 1年\n  - 麻醉处方 → 3年\n\n## GSP 要点\n- 储存温度\n  - **冷库** 2-8℃\n  - **阴凉库** ≤20℃\n  - **常温库** 10-30℃\n- 首营企业和品种审核\n- 逐批验收\n- 冷链管理\n\n## 处方药 vs OTC\n- **处方药**\n  - 凭处方购买\n- **甲类OTC**\n  - 红色标识\n  - 药店购买（药师指导）\n- **乙类OTC**\n  - 绿色标识\n  - 经批准商店可买\n- 遴选原则\n  - 安全、确切、稳定、方便\n\n## 口诀速记\n- 🎯 当日有效麻醉三，普通急诊一\n- 🎯 红甲绿乙非处方\n- 🎯 冷库二八阴凉二十常温三十";
+  const { Transformer } = markmap;
+  const { Markmap } = window.markmap;
+  const transformer = new Transformer();
+  const { root } = transformer.transform(md);
+  const mm = Markmap.create('#mindmap', {
+    colorFreezeLevel: 2,
+    initialExpandLevel: 3,
+    paddingX: 16,
+    autoFit: true,
+    duration: 300
+  }, root);
+  setTimeout(() => mm.fit(), 500);
+</script>
+</body>
+</html>

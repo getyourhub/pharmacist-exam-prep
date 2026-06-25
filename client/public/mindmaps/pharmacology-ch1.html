@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第一章 药理学总论 - 思维导图</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  #mindmap { width: 100vw; height: 100vh; }
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: #1890ff; color: white; padding: 12px 24px;
+    font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header .subject { font-size: 13px; opacity: 0.85; }
+  .legend {
+    position: fixed; bottom: 16px; right: 16px; z-index: 100;
+    background: white; padding: 12px 16px; border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12); font-size: 12px; color: #666;
+  }
+  .legend b { color: #333; }
+</style>
+</head>
+<body>
+<div class="header">
+  <span>🧠 第一章 药理学总论</span>
+  <span class="subject">药理学</span>
+</div>
+<svg id="mindmap"></svg>
+<div class="legend">
+  <b>操作：</b> 鼠标拖拽移动 · 滚轮缩放 · 点击节点展开/折叠
+</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.15.4"></script>
+<script>
+  const md = "# 药理学总论\n\n## 药物基本作用\n- 兴奋作用\n  - 使组织器官功能增强\n- 抑制作用\n  - 使组织器官功能减弱\n- 选择性\n  - 药物对特定组织的作用\n- 两重性\n  - 治疗作用\n  - 不良反应\n\n## 量效关系\n- 最小有效量（阈剂量）\n- 极量（最大允许量）\n- 治疗量（常用有效范围）\n- 半数有效量 ED50\n- 半数致死量 LD50\n- **治疗指数 TI = LD50/ED50**\n  - TI越大越安全\n\n## 体内过程 ADME\n- **A**bsorption 吸收\n  - 首过效应（口服经肝代谢）\n  - 生物利用度 F\n- **D**istribution 分布\n  - 血浆蛋白结合率\n  - 血脑屏障\n- **M**etabolism 代谢\n  - CYP450酶系（肝脏）\n  - 酶诱导剂：利福平\n  - 酶抑制剂：酮康唑\n- **E**xcretion 排泄\n  - 肾脏（主要）\n  - 半衰期 t1/2\n\n## 药动学参数\n- 一级动力学\n  - 恒比例消除\n  - 半衰期恒定\n- 零级动力学\n  - 恒量消除\n  - 半衰期不恒定\n- 稳态浓度 Css\n  - 5-7个半衰期达到\n\n## 受体理论\n- 激动剂\n  - 亲和力 + 内在活性\n- 拮抗剂\n  - 亲和力 + 无内在活性\n  - 竞争性：量效曲线右移\n  - 非竞争性：最大效应降低\n\n## 影响因素\n- 药物因素\n  - 剂量、剂型、给药途径\n- 机体因素\n  - 年龄、性别、遗传\n- 药物相互作用\n  - 协同、拮抗\n- 耐受性与依赖性";
+  const { Transformer } = markmap;
+  const { Markmap } = window.markmap;
+  const transformer = new Transformer();
+  const { root } = transformer.transform(md);
+  const mm = Markmap.create('#mindmap', {
+    colorFreezeLevel: 2,
+    initialExpandLevel: 3,
+    paddingX: 16,
+    autoFit: true,
+    duration: 300
+  }, root);
+  setTimeout(() => mm.fit(), 500);
+</script>
+</body>
+</html>

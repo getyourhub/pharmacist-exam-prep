@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第五章 药物不良反应监测 - 思维导图</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  #mindmap { width: 100vw; height: 100vh; }
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: #fa8c16; color: white; padding: 12px 24px;
+    font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header .subject { font-size: 13px; opacity: 0.85; }
+  .legend {
+    position: fixed; bottom: 16px; right: 16px; z-index: 100;
+    background: white; padding: 12px 16px; border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12); font-size: 12px; color: #666;
+  }
+  .legend b { color: #333; }
+</style>
+</head>
+<body>
+<div class="header">
+  <span>🧠 第五章 药物不良反应监测</span>
+  <span class="subject">综合技能</span>
+</div>
+<svg id="mindmap"></svg>
+<div class="legend">
+  <b>操作：</b> 鼠标拖拽移动 · 滚轮缩放 · 点击节点展开/折叠
+</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.15.4"></script>
+<script>
+  const md = "# 药物不良反应监测\n\n## ADR分类\n- **A型（量变型）**\n  - 与剂量相关\n  - 可预测\n  - 发生率高，死亡率低\n  - 如：副作用、毒性反应\n- **B型（质变型）**\n  - 与剂量无关\n  - 不可预测\n  - 发生率低，死亡率高\n  - 如：过敏反应、特异质反应\n- **C型**\n  - 长期用药后出现\n  - 如：致癌、致畸\n\n## 因果关系评价\n- **肯定**\n  - 时间合理，停药消失，再用再现\n- **很可能**\n  - 时间合理，停药消失，无法解释\n- **可能**\n  - 时间合理，可能与疾病有关\n- **可能无关**\n  - 时间关系不密切\n- **待评价**\n  - 需补充材料\n- **无法评价**\n  - 信息不足\n\n## 常见药源性疾病\n- 肝损害（异烟肼、甲氨蝶呤）\n- 肾损害（氨基糖苷类、NSAIDs）\n- 血液损害（氯霉素→再障）\n- 心脏损害（强心苷→心律失常）\n- 肺损害（胺碘酮→肺纤维化）\n\n## 口诀速记\n- 🎯 A量B质C长期，A预B不\n- 🎯 肝肾心肺血五损害";
+  const { Transformer } = markmap;
+  const { Markmap } = window.markmap;
+  const transformer = new Transformer();
+  const { root } = transformer.transform(md);
+  const mm = Markmap.create('#mindmap', {
+    colorFreezeLevel: 2,
+    initialExpandLevel: 3,
+    paddingX: 16,
+    autoFit: true,
+    duration: 300
+  }, root);
+  setTimeout(() => mm.fit(), 500);
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第一章 药剂学总论 - 思维导图</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  #mindmap { width: 100vw; height: 100vh; }
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: #52c41a; color: white; padding: 12px 24px;
+    font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header .subject { font-size: 13px; opacity: 0.85; }
+  .legend {
+    position: fixed; bottom: 16px; right: 16px; z-index: 100;
+    background: white; padding: 12px 16px; border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12); font-size: 12px; color: #666;
+  }
+  .legend b { color: #333; }
+</style>
+</head>
+<body>
+<div class="header">
+  <span>🧠 第一章 药剂学总论</span>
+  <span class="subject">药剂学</span>
+</div>
+<svg id="mindmap"></svg>
+<div class="legend">
+  <b>操作：</b> 鼠标拖拽移动 · 滚轮缩放 · 点击节点展开/折叠
+</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.15.4"></script>
+<script>
+  const md = "# 药剂学总论\n\n## 基本概念\n- **药剂学**\n  - 研究药物制剂的理论、设计、工艺、应用\n- **剂型**\n  - 药物供使用的形式\n  - 片剂、注射剂、胶囊剂等\n- **制剂**\n  - 具体的药物制品\n- **辅料**\n  - 制剂中除主药外的物质\n\n## 药典与规范\n- **药典**\n  - 国家药品质量标准法典\n  - 中国药典（ChP）\n  - 美国药典（USP）\n- **GMP**\n  - 药品生产质量管理规范\n  - 人员、厂房、设备、物料、文件、验证\n\n## 药物稳定性\n- 影响因素\n  - 处方因素\n    - pH、溶剂、辅料\n  - 外界因素\n    - 温度、光线、空气、湿度\n- 稳定性试验\n  - **影响因素试验**\n    - 高温、高湿、强光\n  - **加速试验**\n    - 40℃ / RH75% / 6个月\n  - **长期试验**\n    - 25℃ / RH60% / 24个月\n  - 有效期 = t₉₀";
+  const { Transformer } = markmap;
+  const { Markmap } = window.markmap;
+  const transformer = new Transformer();
+  const { root } = transformer.transform(md);
+  const mm = Markmap.create('#mindmap', {
+    colorFreezeLevel: 2,
+    initialExpandLevel: 3,
+    paddingX: 16,
+    autoFit: true,
+    duration: 300
+  }, root);
+  setTimeout(() => mm.fit(), 500);
+</script>
+</body>
+</html>

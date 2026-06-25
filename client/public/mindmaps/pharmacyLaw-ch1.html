@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第一章 药品管理与药品管理法 - 思维导图</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  #mindmap { width: 100vw; height: 100vh; }
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: #722ed1; color: white; padding: 12px 24px;
+    font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header .subject { font-size: 13px; opacity: 0.85; }
+  .legend {
+    position: fixed; bottom: 16px; right: 16px; z-index: 100;
+    background: white; padding: 12px 16px; border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12); font-size: 12px; color: #666;
+  }
+  .legend b { color: #333; }
+</style>
+</head>
+<body>
+<div class="header">
+  <span>🧠 第一章 药品管理与药品管理法</span>
+  <span class="subject">药事管理</span>
+</div>
+<svg id="mindmap"></svg>
+<div class="legend">
+  <b>操作：</b> 鼠标拖拽移动 · 滚轮缩放 · 点击节点展开/折叠
+</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.15.4"></script>
+<script>
+  const md = "# 药品管理与药品管理法\n\n## 假药（2019修订）\n- 药品所含**成份**与标准不符\n- 以非药品**冒充**药品\n- **变质**的药品\n- 适应症**超出**规定范围\n\n## 劣药\n- 药品**含量**不符合标准\n- **被污染**的药品\n- 未标明或更改**有效期**\n- **超过有效期**的药品\n\n## 假药 vs 劣药\n- 🔴 假药 → **成份**问题\n- 🔵 劣药 → **含量**问题\n- 变质 = 假药\n- 过期 = 劣药\n\n## 药品管理法总则\n- 2020年1月1日施行\n- 基本原则\n  - 保障公众健康\n  - 风险管理\n  - 全程管控\n  - 社会共治\n- **上市许可持有人制度** MAH\n  - 对全生命周期负责\n  - 可自行或委托生产\n- 处方药与OTC分类管理\n\n## 口诀速记\n- 🎯 假变劣过，含量低劣\n- 🎯 假药看成份，劣药看过期";
+  const { Transformer } = markmap;
+  const { Markmap } = window.markmap;
+  const transformer = new Transformer();
+  const { root } = transformer.transform(md);
+  const mm = Markmap.create('#mindmap', {
+    colorFreezeLevel: 2,
+    initialExpandLevel: 3,
+    paddingX: 16,
+    autoFit: true,
+    duration: 300
+  }, root);
+  setTimeout(() => mm.fit(), 500);
+</script>
+</body>
+</html>

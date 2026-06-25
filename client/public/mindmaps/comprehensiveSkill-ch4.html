@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第四章 用药指导 - 思维导图</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  #mindmap { width: 100vw; height: 100vh; }
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: #fa8c16; color: white; padding: 12px 24px;
+    font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header .subject { font-size: 13px; opacity: 0.85; }
+  .legend {
+    position: fixed; bottom: 16px; right: 16px; z-index: 100;
+    background: white; padding: 12px 16px; border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12); font-size: 12px; color: #666;
+  }
+  .legend b { color: #333; }
+</style>
+</head>
+<body>
+<div class="header">
+  <span>🧠 第四章 用药指导</span>
+  <span class="subject">综合技能</span>
+</div>
+<svg id="mindmap"></svg>
+<div class="legend">
+  <b>操作：</b> 鼠标拖拽移动 · 滚轮缩放 · 点击节点展开/折叠
+</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.15.4"></script>
+<script>
+  const md = "# 用药指导\n\n## 指导内容\n- 药物名称和作用\n- 用法用量\n- 注意事项\n- 不良反应及应对\n- 储存条件\n- 漏服处理\n- 疗程和复诊时间\n\n## 常见服药时间\n- **空腹**\n  - 甲状腺素片\n  - 左旋多巴\n- **饭前**\n  - 胃黏膜保护药（硫糖铝）\n  - 促胃动力药（多潘立酮）\n- **饭后**\n  - NSAIDs（阿司匹林）\n  - 脂溶性维生素\n- **睡前**\n  - 他汀类（胆固醇夜间合成）\n  - 催眠药\n- **晨服**\n  - 糖皮质激素（生理节律）\n\n## 特殊剂型指导\n- 缓释片 → 不可掰开/咀嚼\n- 舌下含片 → 不可吞服\n- 肠溶片 → 不可掰开\n\n## 药物相互作用\n- **药动学**\n  - 吸收（抗酸药影响四环素）\n  - 分布（竞争血浆蛋白）\n  - 代谢（CYP450诱导/抑制）\n  - 排泄（丙磺舒抑青霉素排泄）\n- **药效学**\n  - 协同（SMZ+TMP）\n  - 拮抗（华法林+VitK）\n\n## 口诀速记\n- 🎯 空腹甲状腺，饭前胃保护\n- 🎯 饭后NSAIDs，睡前他汀激素晨";
+  const { Transformer } = markmap;
+  const { Markmap } = window.markmap;
+  const transformer = new Transformer();
+  const { root } = transformer.transform(md);
+  const mm = Markmap.create('#mindmap', {
+    colorFreezeLevel: 2,
+    initialExpandLevel: 3,
+    paddingX: 16,
+    autoFit: true,
+    duration: 300
+  }, root);
+  setTimeout(() => mm.fit(), 500);
+</script>
+</body>
+</html>
