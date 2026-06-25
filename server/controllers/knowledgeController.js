@@ -2,6 +2,17 @@ const KnowledgePoint = require('../models/KnowledgePoint');
 const Chapter = require('../models/Chapter');
 const Subject = require('../models/Subject');
 
+// @desc    获取所有科目
+// @route   GET /api/knowledge/subjects
+exports.getSubjects = async (req, res) => {
+  try {
+    const subjects = await Subject.find().populate('chapters').sort({ createdAt: 1 });
+    res.json({ success: true, data: subjects });
+  } catch (error) {
+    res.status(500).json({ success: false, message: '获取科目失败', error: error.message });
+  }
+};
+
 // @desc    获取知识点列表
 // @route   GET /api/knowledge
 exports.getKnowledgePoints = async (req, res) => {

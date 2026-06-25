@@ -113,6 +113,8 @@ export const examAPI = {
 
 // 知识点API
 export const knowledgeAPI = {
+  getSubjects: () => api.get('/knowledge/subjects'),
+  
   getKnowledgePoints: (params?: any) => api.get('/knowledge', { params }),
   
   getKnowledgePoint: (id: string) => api.get(`/knowledge/${id}`),

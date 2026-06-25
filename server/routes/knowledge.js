@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { protect } = require('../middleware/auth');
+const { defaultUser } = require('../middleware/auth');
 const {
+  getSubjects,
   getKnowledgePoints,
   getKnowledgePoint,
   getKnowledgeFramework,
@@ -10,24 +11,13 @@ const {
   getReviewPoints
 } = require('../controllers/knowledgeController');
 
-router.use(protect);
-
-router.route('/')
-  .get(getKnowledgePoints);
-
-router.route('/search')
-  .get(searchKnowledge);
-
-router.route('/review')
-  .get(getReviewPoints);
-
-router.route('/framework/:subjectId')
-  .get(getKnowledgeFramework);
-
-router.route('/:id')
-  .get(getKnowledgePoint);
-
-router.route('/:id/review')
-  .put(updateReviewStatus);
+// 公开接口，无需认证
+router.get('/subjects', getSubjects);
+router.get('/search', searchKnowledge);
+router.get('/review', defaultUser, getReviewPoints);
+router.get('/framework/:subjectId', getKnowledgeFramework);
+router.get('/', getKnowledgePoints);
+router.get('/:id', getKnowledgePoint);
+router.put('/:id/review', defaultUser, updateReviewStatus);
 
 module.exports = router;
