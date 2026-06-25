@@ -754,6 +754,566 @@ const pharmacologyQuestions = [
     answer: 'A',
     explanation: '两性霉素B与真菌细胞膜上的麦角固醇结合，形成跨膜孔道→细胞内容物外漏→真菌死亡。是广谱抗真菌药，但肾毒性大。',
     difficulty: 4, importance: 'medium', source: '真题', year: 2022, tags: ['药理学', '化疗', '两性霉素B']
+  },
+
+  // ========== 大量补充题目 - 药理学总论 ==========
+  {
+    content: '药物的安全范围是指',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 1,
+    options: [
+      { label: 'A', content: '最小有效量与最小中毒量之间的范围', isCorrect: true },
+      { label: 'B', content: '治疗量与极量之间的范围', isCorrect: false },
+      { label: 'C', content: 'ED50与LD50之间的范围', isCorrect: false },
+      { label: 'D', content: '最小有效量与极量之间的范围', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '安全范围是指最小有效量与最小中毒量之间的距离。范围越大越安全。治疗指数（TI=LD50/ED50）也可反映安全性，但安全范围更准确。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '总论', '安全范围']
+  },
+  {
+    content: '药物的不良反应不包括',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 1,
+    options: [
+      { label: 'A', content: '副作用', isCorrect: false },
+      { label: 'B', content: '毒性反应', isCorrect: false },
+      { label: 'C', content: '治疗作用', isCorrect: true },
+      { label: 'D', content: '变态反应', isCorrect: false }
+    ],
+    answer: 'C',
+    explanation: '不良反应包括副作用、毒性反应、后遗效应、停药反应、变态反应和特异质反应。治疗作用是药物的预期效果，不属于不良反应。',
+    difficulty: 2, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '总论', '不良反应']
+  },
+  {
+    content: '零级动力学消除的特点是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 1,
+    options: [
+      { label: 'A', content: '单位时间内消除的药量恒定', isCorrect: true },
+      { label: 'B', content: '单位时间内消除的比例恒定', isCorrect: false },
+      { label: 'C', content: '半衰期恒定', isCorrect: false },
+      { label: 'D', content: '血药浓度与时间呈线性关系', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '零级动力学消除的特点是单位时间内消除的药量恒定（等量消除），半衰期随血药浓度变化而不恒定。常见于乙醇、苯妥英钠等药物在高浓度时。',
+    difficulty: 3, importance: 'high', source: '模拟题', tags: ['药理学', '总论', '零级动力学']
+  },
+  {
+    content: '药物的亲和力是指',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 1,
+    options: [
+      { label: 'A', content: '药物与受体结合的能力', isCorrect: true },
+      { label: 'B', content: '药物产生最大效应的能力', isCorrect: false },
+      { label: 'C', content: '药物的脂溶性', isCorrect: false },
+      { label: 'D', content: '药物的水溶性', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '亲和力是指药物与受体结合的能力。内在活性是指药物与受体结合后产生效应的能力。激动剂既有亲和力又有内在活性，拮抗剂只有亲和力而无内在活性。',
+    difficulty: 2, importance: 'high', source: '练习题', tags: ['药理学', '总论', '亲和力']
+  },
+  {
+    content: '药物的生物转化主要在哪个器官进行',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 1,
+    options: [
+      { label: 'A', content: '肝脏', isCorrect: true },
+      { label: 'B', content: '肾脏', isCorrect: false },
+      { label: 'C', content: '肺', isCorrect: false },
+      { label: 'D', content: '肠道', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '药物的生物转化（代谢）主要在肝脏进行，肝脏含有丰富的药物代谢酶系，特别是CYP450酶系。肾脏是药物排泄的主要器官。',
+    difficulty: 1, importance: 'high', source: '练习题', tags: ['药理学', '总论', '生物转化']
+  },
+  {
+    content: '关于药物耐受性的叙述，正确的是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 1,
+    options: [
+      { label: 'A', content: '连续用药后机体对药物的反应性降低', isCorrect: true },
+      { label: 'B', content: '首次用药即出现反应降低', isCorrect: false },
+      { label: 'C', content: '停药后反应性立即恢复', isCorrect: false },
+      { label: 'D', content: '只有化学药物才会产生耐受性', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '耐受性是指连续用药后机体对药物的反应性降低，需要增加剂量才能达到原来的效应。快速耐受性（脱敏）可在短时间内产生。',
+    difficulty: 2, importance: 'medium', source: '练习题', tags: ['药理学', '总论', '耐受性']
+  },
+
+  // ========== 大量补充题目 - 传出神经系统 ==========
+  {
+    content: '阿托品对眼睛的作用不包括',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 2,
+    options: [
+      { label: 'A', content: '散瞳', isCorrect: false },
+      { label: 'B', content: '升高眼压', isCorrect: false },
+      { label: 'C', content: '调节麻痹', isCorrect: false },
+      { label: 'D', content: '降低眼压', isCorrect: true }
+    ],
+    answer: 'D',
+    explanation: '阿托品对眼睛的作用是散瞳、升高眼压、调节麻痹。毛果芸香碱才是缩瞳、降低眼压、调节痉挛。阿托品升高眼压，故青光眼患者禁用。',
+    difficulty: 2, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '传出神经', '阿托品']
+  },
+  {
+    content: '下列药物中，属于胆碱酯酶复活药的是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 2,
+    options: [
+      { label: 'A', content: '碘解磷定', isCorrect: true },
+      { label: 'B', content: '阿托品', isCorrect: false },
+      { label: 'C', content: '新斯的明', isCorrect: false },
+      { label: 'D', content: '毛果芸香碱', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '碘解磷定（PAM）是胆碱酯酶复活药，能使被有机磷抑制的胆碱酯酶恢复活性。阿托品是对抗M样症状的对症治疗药。',
+    difficulty: 2, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '传出神经', '胆碱酯酶复活药']
+  },
+  {
+    content: '多巴胺的药理作用不包括',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 2,
+    options: [
+      { label: 'A', content: '兴奋心脏', isCorrect: false },
+      { label: 'B', content: '扩张肾血管', isCorrect: false },
+      { label: 'C', content: '收缩皮肤黏膜血管', isCorrect: false },
+      { label: 'D', content: '扩张支气管', isCorrect: true }
+    ],
+    answer: 'D',
+    explanation: '多巴胺激动DA、β1和α受体。小剂量激动DA受体→扩张肾血管；中剂量激动β1→兴奋心脏；大剂量激动α→收缩血管。多巴胺不扩张支气管。',
+    difficulty: 3, importance: 'high', source: '模拟题', tags: ['药理学', '传出神经', '多巴胺']
+  },
+  {
+    content: '酚妥拉明的药理作用是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 2,
+    options: [
+      { label: 'A', content: '阻断α受体，扩张血管', isCorrect: true },
+      { label: 'B', content: '阻断β受体，减慢心率', isCorrect: false },
+      { label: 'C', content: '激动α受体，收缩血管', isCorrect: false },
+      { label: 'D', content: '激动β受体，兴奋心脏', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '酚妥拉明是短效α受体阻断药，阻断α受体使血管扩张，外周阻力下降，血压降低。临床用于外周血管痉挛性疾病和嗜铬细胞瘤的诊断。',
+    difficulty: 3, importance: 'medium', source: '练习题', tags: ['药理学', '传出神经', '酚妥拉明']
+  },
+  {
+    content: '有机磷中毒的M样症状不包括',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 2,
+    options: [
+      { label: 'A', content: '瞳孔缩小', isCorrect: false },
+      { label: 'B', content: '流涎出汗', isCorrect: false },
+      { label: 'C', content: '肌肉震颤', isCorrect: true },
+      { label: 'D', content: '支气管痉挛', isCorrect: false }
+    ],
+    answer: 'C',
+    explanation: 'M样症状包括瞳孔缩小、流涎、出汗、支气管痉挛、心率减慢、腹痛腹泻等。肌肉震颤属于N样症状（N2受体兴奋所致）。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2022, tags: ['药理学', '传出神经', '有机磷']
+  },
+  {
+    content: '普萘洛尔的禁忌证不包括',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 2,
+    options: [
+      { label: 'A', content: '支气管哮喘', isCorrect: false },
+      { label: 'B', content: '心动过缓', isCorrect: false },
+      { label: 'C', content: '高血压', isCorrect: true },
+      { label: 'D', content: '严重心力衰竭', isCorrect: false }
+    ],
+    answer: 'C',
+    explanation: '普萘洛尔禁用于支气管哮喘（阻断β2致支气管痉挛）、心动过缓（进一步减慢心率）、严重心力衰竭（抑制心肌收缩力）。高血压是普萘洛尔的适应证。',
+    difficulty: 2, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '传出神经', '普萘洛尔']
+  },
+
+  // ========== 大量补充题目 - 中枢神经系统 ==========
+  {
+    content: '巴比妥类药物的作用机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 3,
+    options: [
+      { label: 'A', content: '延长Cl-通道开放时间，增强GABA作用', isCorrect: true },
+      { label: 'B', content: '增加Cl-通道开放频率', isCorrect: false },
+      { label: 'C', content: '直接开放Cl-通道', isCorrect: false },
+      { label: 'D', content: '抑制GABA的降解', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '巴比妥类延长Cl-通道开放时间，增强GABA的抑制作用。与苯二氮卓类（增加开放频率）不同。巴比妥类安全范围小，大剂量可直接开放Cl-通道。',
+    difficulty: 4, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '中枢神经', '巴比妥类']
+  },
+  {
+    content: '卡马西平的临床应用不包括',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 3,
+    options: [
+      { label: 'A', content: '癫痫大发作', isCorrect: false },
+      { label: 'B', content: '三叉神经痛', isCorrect: false },
+      { label: 'C', content: '躁狂症', isCorrect: false },
+      { label: 'D', content: '癫痫小发作', isCorrect: true }
+    ],
+    answer: 'D',
+    explanation: '卡马西平是大发作首选药之一，也用于三叉神经痛和躁狂症。对小发作（失神发作）无效甚至可能加重。小发作首选乙琥胺。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2022, tags: ['药理学', '中枢神经', '卡马西平']
+  },
+  {
+    content: '氯丙嗪引起体位性低血压的原因是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 3,
+    options: [
+      { label: 'A', content: '阻断α受体', isCorrect: true },
+      { label: 'B', content: '阻断β受体', isCorrect: false },
+      { label: 'C', content: '阻断M受体', isCorrect: false },
+      { label: 'D', content: '阻断D2受体', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '氯丙嗪阻断α受体→血管扩张→血压下降。当患者由卧位突然起立时，因血压调节功能障碍而发生体位性低血压。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '中枢神经', '氯丙嗪']
+  },
+  {
+    content: '吗啡的禁忌证不包括',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 3,
+    options: [
+      { label: 'A', content: '支气管哮喘', isCorrect: false },
+      { label: 'B', content: '颅内压增高', isCorrect: false },
+      { label: 'C', content: '急性锐痛', isCorrect: true },
+      { label: 'D', content: '分娩止痛', isCorrect: false }
+    ],
+    answer: 'C',
+    explanation: '吗啡禁用于支气管哮喘（抑制呼吸、收缩支气管）、颅内压增高（抑制呼吸致CO2蓄积→脑血管扩张→颅内压更高）、分娩止痛（抑制新生儿呼吸）。急性锐痛是吗啡的适应证。',
+    difficulty: 2, importance: 'high', source: '练习题', tags: ['药理学', '中枢神经', '吗啡']
+  },
+  {
+    content: '阿司匹林预防血栓形成的机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 3,
+    options: [
+      { label: 'A', content: '不可逆抑制血小板COX，减少TXA2合成', isCorrect: true },
+      { label: 'B', content: '抑制凝血酶', isCorrect: false },
+      { label: 'C', content: '激活纤溶系统', isCorrect: false },
+      { label: 'D', content: '抑制维生素K', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '小剂量阿司匹林不可逆抑制血小板中的COX-1→TXA2减少→血小板聚集功能降低。血小板无核不能重新合成COX，故作用持续整个血小板寿命期（7-10天）。',
+    difficulty: 4, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '中枢神经', '阿司匹林']
+  },
+  {
+    content: '氟西汀的主要不良反应是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 3,
+    options: [
+      { label: 'A', content: '胃肠道反应和性功能障碍', isCorrect: true },
+      { label: 'B', content: '心脏毒性', isCorrect: false },
+      { label: 'C', content: '锥体外系反应', isCorrect: false },
+      { label: 'D', content: '粒细胞缺乏', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '氟西汀是SSRI，不良反应较三环类少，主要为胃肠道反应（恶心、腹泻）、性功能障碍、失眠、头痛等。三环类才有心脏毒性。',
+    difficulty: 2, importance: 'medium', source: '练习题', tags: ['药理学', '中枢神经', 'SSRI']
+  },
+
+  // ========== 大量补充题目 - 心血管系统 ==========
+  {
+    content: '氯沙坦的降压机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 4,
+    options: [
+      { label: 'A', content: '阻断血管紧张素II的AT1受体', isCorrect: true },
+      { label: 'B', content: '抑制血管紧张素转化酶', isCorrect: false },
+      { label: 'C', content: '阻断β受体', isCorrect: false },
+      { label: 'D', content: '阻断钙通道', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '氯沙坦是ARB，选择性阻断AngII的AT1受体→阻断AngII的缩血管和促醛固酮分泌作用→降压。与ACEI相比，不引起干咳（不影响缓激肽代谢）。',
+    difficulty: 2, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '心血管', 'ARB']
+  },
+  {
+    content: '变异型心绞痛首选药物是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 4,
+    options: [
+      { label: 'A', content: '硝苯地平', isCorrect: true },
+      { label: 'B', content: '普萘洛尔', isCorrect: false },
+      { label: 'C', content: '硝酸甘油', isCorrect: false },
+      { label: 'D', content: '地尔硫卓', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '变异型心绞痛由冠脉痉挛引起，首选CCB（钙通道阻滞药）如硝苯地平。CCB能解除冠脉痉挛，扩张冠脉。β受体阻断药可能加重冠脉痉挛。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2022, tags: ['药理学', '心血管', '变异型心绞痛']
+  },
+  {
+    content: '强心苷中毒最早出现的表现是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 4,
+    options: [
+      { label: 'A', content: '胃肠道反应（恶心、呕吐）', isCorrect: true },
+      { label: 'B', content: '心脏毒性', isCorrect: false },
+      { label: 'C', content: '视觉异常', isCorrect: false },
+      { label: 'D', content: '中枢症状', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '强心苷中毒最早出现的表现是胃肠道反应（厌食、恶心、呕吐）。最严重的是心脏毒性（各种心律失常）。视觉异常（黄视、绿视）是特征性表现。',
+    difficulty: 2, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '心血管', '强心苷']
+  },
+  {
+    content: '利多卡因主要用于治疗',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 4,
+    options: [
+      { label: 'A', content: '室性心律失常', isCorrect: true },
+      { label: 'B', content: '房性心律失常', isCorrect: false },
+      { label: 'C', content: '窦性心律失常', isCorrect: false },
+      { label: 'D', content: '室上性心动过速', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '利多卡因是IB类抗心律失常药，主要用于室性心律失常（如心肌梗死后室性心律失常）。对室上性心律失常效果差。',
+    difficulty: 2, importance: 'high', source: '真题', year: 2022, tags: ['药理学', '心血管', '利多卡因']
+  },
+  {
+    content: '贝特类调血脂药主要降低',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 4,
+    options: [
+      { label: 'A', content: '甘油三酯（TG）', isCorrect: true },
+      { label: 'B', content: '总胆固醇（TC）', isCorrect: false },
+      { label: 'C', content: '低密度脂蛋白（LDL-C）', isCorrect: false },
+      { label: 'D', content: '高密度脂蛋白（HDL-C）', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '贝特类（非诺贝特、苯扎贝特）激活PPAR-α→促进脂肪酸氧化→降低TG为主。他汀类（辛伐他汀）抑制HMG-CoA还原酶→降低LDL-C为主。',
+    difficulty: 2, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '心血管', '贝特类']
+  },
+  {
+    content: '肝素过量引起的出血，解救药物是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 4,
+    options: [
+      { label: 'A', content: '鱼精蛋白', isCorrect: true },
+      { label: 'B', content: '维生素K', isCorrect: false },
+      { label: 'C', content: '氨甲苯酸', isCorrect: false },
+      { label: 'D', content: '凝血酶', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '鱼精蛋白是肝素的特效解毒剂，带正电荷的鱼精蛋白与带负电荷的肝素结合形成稳定复合物→失去抗凝活性。华法林过量用维生素K解救。',
+    difficulty: 2, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '心血管', '肝素']
+  },
+  {
+    content: '硝酸甘油的禁忌证不包括',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 4,
+    options: [
+      { label: 'A', content: '颅内压增高', isCorrect: false },
+      { label: 'B', content: '青光眼', isCorrect: false },
+      { label: 'C', content: '稳定性心绞痛', isCorrect: true },
+      { label: 'D', content: '严重低血压', isCorrect: false }
+    ],
+    answer: 'C',
+    explanation: '硝酸甘油禁用于颅内压增高（扩张脑血管加重）、青光眼（升高眼压）、严重低血压（进一步降压）。稳定性心绞痛是硝酸甘油的适应证。',
+    difficulty: 2, importance: 'high', source: '练习题', tags: ['药理学', '心血管', '硝酸甘油']
+  },
+
+  // ========== 大量补充题目 - 内脏系统 ==========
+  {
+    content: '呋塞米的利尿机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 5,
+    options: [
+      { label: 'A', content: '抑制髓袢升支粗段Na-K-2Cl共转运体', isCorrect: true },
+      { label: 'B', content: '抑制远曲小管Na-Cl共转运体', isCorrect: false },
+      { label: 'C', content: '拮抗醛固酮', isCorrect: false },
+      { label: 'D', content: '抑制碳酸酐酶', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '呋塞米是高效利尿药，抑制髓袢升支粗段的Na-K-2Cl共转运体→减少NaCl重吸收→产生强大利尿作用。同时促进前列腺素合成→扩张肾血管。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '内脏', '呋塞米']
+  },
+  {
+    content: '螺内酯的利尿机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 5,
+    options: [
+      { label: 'A', content: '拮抗醛固酮受体，减少Na+-K+交换', isCorrect: true },
+      { label: 'B', content: '抑制Na-K-2Cl共转运体', isCorrect: false },
+      { label: 'C', content: '抑制Na-Cl共转运体', isCorrect: false },
+      { label: 'D', content: '抑制碳酸酐酶', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '螺内酯是低效利尿药，化学结构与醛固酮相似，竞争性拮抗醛固酮受体→减少Na+-K+交换→排钠保钾。是保钾利尿药。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2022, tags: ['药理学', '内脏', '螺内酯']
+  },
+  {
+    content: '糖皮质激素吸入治疗哮喘的优点不包括',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 5,
+    options: [
+      { label: 'A', content: '局部抗炎作用强', isCorrect: false },
+      { label: 'B', content: '全身不良反应少', isCorrect: false },
+      { label: 'C', content: '起效快，适合急性发作', isCorrect: true },
+      { label: 'D', content: '可预防哮喘发作', isCorrect: false }
+    ],
+    answer: 'C',
+    explanation: '吸入糖皮质激素（布地奈德）起效慢，需连续用药数天才能发挥最大效果，不适合急性发作。急性发作首选β2受体激动剂（沙丁胺醇）。',
+    difficulty: 2, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '内脏', '糖皮质激素吸入']
+  },
+  {
+    content: '西咪替丁抑制胃酸分泌的机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 5,
+    options: [
+      { label: 'A', content: '阻断壁细胞H2受体', isCorrect: true },
+      { label: 'B', content: '抑制质子泵', isCorrect: false },
+      { label: 'C', content: '中和胃酸', isCorrect: false },
+      { label: 'D', content: '阻断M受体', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '西咪替丁是H2受体阻断药，阻断壁细胞上的H2受体→减少胃酸分泌。奥美拉唑抑制H+/K+-ATP酶（质子泵）。',
+    difficulty: 2, importance: 'high', source: '练习题', tags: ['药理学', '内脏', 'H2受体阻断药']
+  },
+
+  // ========== 大量补充题目 - 内分泌系统 ==========
+  {
+    content: '糖皮质激素的不良反应不包括',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 6,
+    options: [
+      { label: 'A', content: '骨质疏松', isCorrect: false },
+      { label: 'B', content: '消化性溃疡', isCorrect: false },
+      { label: 'C', content: '低血糖', isCorrect: true },
+      { label: 'D', content: '向心性肥胖', isCorrect: false }
+    ],
+    answer: 'C',
+    explanation: '糖皮质激素促进糖异生→升高血糖→可诱发或加重糖尿病（不是低血糖）。其他不良反应包括骨质疏松、消化性溃疡、向心性肥胖、高血压等。',
+    difficulty: 2, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '内分泌', '糖皮质激素']
+  },
+  {
+    content: '阿卡波糖的降糖机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 6,
+    options: [
+      { label: 'A', content: '抑制α-葡萄糖苷酶，延缓碳水化合物吸收', isCorrect: true },
+      { label: 'B', content: '促进胰岛素分泌', isCorrect: false },
+      { label: 'C', content: '减少肝糖输出', isCorrect: false },
+      { label: 'D', content: '增加胰岛素敏感性', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '阿卡波糖抑制小肠上皮刷状缘的α-葡萄糖苷酶→延缓碳水化合物分解和吸收→降低餐后血糖。应在吃第一口饭时嚼碎服用。',
+    difficulty: 2, importance: 'high', source: '真题', year: 2022, tags: ['药理学', '内分泌', '阿卡波糖']
+  },
+  {
+    content: '丙硫氧嘧啶抗甲状腺的作用环节是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 6,
+    options: [
+      { label: 'A', content: '抑制过氧化物酶，阻止碘的活化和酪氨酸碘化', isCorrect: true },
+      { label: 'B', content: '抑制甲状腺激素的释放', isCorrect: false },
+      { label: 'C', content: '破坏甲状腺组织', isCorrect: false },
+      { label: 'D', content: '阻断TSH受体', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '硫脲类（丙硫氧嘧啶）抑制过氧化物酶→阻止碘的活化和酪氨酸碘化→抑制甲状腺激素合成。不影响已合成的激素释放，故起效慢。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '内分泌', '硫脲类']
+  },
+  {
+    content: '胰岛素最常见的不良反应是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 6,
+    options: [
+      { label: 'A', content: '低血糖', isCorrect: true },
+      { label: 'B', content: '过敏反应', isCorrect: false },
+      { label: 'C', content: '脂肪萎缩', isCorrect: false },
+      { label: 'D', content: '胰岛素抵抗', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '低血糖是胰岛素最常见也是最危险的不良反应，多因剂量过大或未按时进食引起。应教育患者识别低血糖症状并及时处理。',
+    difficulty: 1, importance: 'high', source: '练习题', tags: ['药理学', '内分泌', '胰岛素']
+  },
+
+  // ========== 大量补充题目 - 化学治疗药物 ==========
+  {
+    content: '青霉素G最严重的不良反应是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 7,
+    options: [
+      { label: 'A', content: '过敏性休克', isCorrect: true },
+      { label: 'B', content: '赫氏反应', isCorrect: false },
+      { label: 'C', content: '二重感染', isCorrect: false },
+      { label: 'D', content: '肾毒性', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '青霉素G最严重的不良反应是过敏性休克，发生率虽低但可致命。使用前必须做皮试。抢救首选肾上腺素。',
+    difficulty: 2, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '化疗', '青霉素']
+  },
+  {
+    content: '头孢菌素类抗生素的特点，错误的是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 7,
+    options: [
+      { label: 'A', content: '一代头孢抗革兰阳性菌作用最强', isCorrect: false },
+      { label: 'B', content: '代数越高抗革兰阴性菌作用越强', isCorrect: false },
+      { label: 'C', content: '代数越高肾毒性越低', isCorrect: false },
+      { label: 'D', content: '所有头孢菌素都对铜绿假单胞菌有效', isCorrect: true }
+    ],
+    answer: 'D',
+    explanation: '并非所有头孢都对铜绿假单胞菌有效。只有三代头孢中的头孢他啶和四代头孢（头孢吡肟）对铜绿假单胞菌有较强作用。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2022, tags: ['药理学', '化疗', '头孢菌素']
+  },
+  {
+    content: '抗结核药物中，可引起视神经炎的是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 7,
+    options: [
+      { label: 'A', content: '乙胺丁醇', isCorrect: true },
+      { label: 'B', content: '异烟肼', isCorrect: false },
+      { label: 'C', content: '利福平', isCorrect: false },
+      { label: 'D', content: '吡嗪酰胺', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '乙胺丁醇的主要不良反应是视神经炎（球后视神经炎），表现为视力下降、视野缩小、色觉障碍。用药期间应定期检查视力。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '化疗', '乙胺丁醇']
+  },
+  {
+    content: '阿昔洛韦抗病毒的机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 7,
+    options: [
+      { label: 'A', content: '抑制病毒DNA聚合酶', isCorrect: true },
+      { label: 'B', content: '抑制病毒RNA聚合酶', isCorrect: false },
+      { label: 'C', content: '抑制神经氨酸酶', isCorrect: false },
+      { label: 'D', content: '抑制逆转录酶', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '阿昔洛韦在感染细胞内被病毒胸苷激酶磷酸化→选择性抑制病毒DNA聚合酶→阻止病毒DNA合成。对HSV和VZV效果好。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2022, tags: ['药理学', '化疗', '阿昔洛韦']
+  },
+  {
+    content: '多柔比星（阿霉素）的主要不良反应是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 7,
+    options: [
+      { label: 'A', content: '心脏毒性', isCorrect: true },
+      { label: 'B', content: '肾毒性', isCorrect: false },
+      { label: 'C', content: '耳毒性', isCorrect: false },
+      { label: 'D', content: '肝毒性', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '多柔比星（蒽环类抗肿瘤抗生素）最严重的不良反应是心脏毒性，可表现为急性心律失常和慢性心肌病。有终身累积剂量限制。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '化疗', '抗肿瘤']
+  },
+  {
+    content: '奥司他韦的抗病毒机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 7,
+    options: [
+      { label: 'A', content: '抑制神经氨酸酶，阻止病毒释放', isCorrect: true },
+      { label: 'B', content: '抑制病毒DNA聚合酶', isCorrect: false },
+      { label: 'C', content: '抑制病毒逆转录酶', isCorrect: false },
+      { label: 'D', content: '阻止病毒吸附', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '奥司他韦（达菲）是神经氨酸酶抑制剂，抑制流感病毒神经氨酸酶→阻止子代病毒从宿主细胞释放→减少病毒扩散。用于甲型和乙型流感。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '化疗', '奥司他韦']
+  },
+  {
+    content: '甲氨蝶呤的抗肿瘤机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 7,
+    options: [
+      { label: 'A', content: '抑制二氢叶酸还原酶，阻止叶酸代谢', isCorrect: true },
+      { label: 'B', content: '抑制DNA聚合酶', isCorrect: false },
+      { label: 'C', content: '抑制微管蛋白聚合', isCorrect: false },
+      { label: 'D', content: '嵌入DNA', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '甲氨蝶呤抑制二氢叶酸还原酶→四氢叶酸生成减少→影响嘌呤和嘧啶合成→抑制DNA合成。是抗代谢药。用亚叶酸钙（甲酰四氢叶酸钙）解救。',
+    difficulty: 4, importance: 'high', source: '真题', year: 2022, tags: ['药理学', '化疗', '甲氨蝶呤']
+  },
+  {
+    content: '氟康唑的抗真菌机制是',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 7,
+    options: [
+      { label: 'A', content: '抑制真菌CYP450依赖的14α-去甲基酶', isCorrect: true },
+      { label: 'B', content: '与麦角固醇结合形成孔道', isCorrect: false },
+      { label: 'C', content: '抑制角鲨烯环氧化酶', isCorrect: false },
+      { label: 'D', content: '抑制几丁质合成', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '氟康唑抑制真菌CYP450依赖的14α-去甲基酶→阻止麦角固醇合成→细胞膜通透性增加→真菌死亡。对念珠菌和隐球菌效果好。',
+    difficulty: 4, importance: 'medium', source: '练习题', tags: ['药理学', '化疗', '氟康唑']
+  },
+  {
+    content: '链霉素抗结核的特点不包括',
+    type: 'single', subjectCode: 'pharmacology', chapterOrder: 7,
+    options: [
+      { label: 'A', content: '对细胞内结核菌有强大的杀灭作用', isCorrect: true },
+      { label: 'B', content: '对细胞外结核菌有杀灭作用', isCorrect: false },
+      { label: 'C', content: '主要不良反应是耳毒性', isCorrect: false },
+      { label: 'D', content: '属于一线抗结核药', isCorrect: false }
+    ],
+    answer: 'A',
+    explanation: '链霉素不易透过细胞膜，对细胞内结核菌作用弱。对细胞外的结核菌有杀灭作用。异烟肼和利福平对细胞内外的结核菌均有杀灭作用。',
+    difficulty: 3, importance: 'high', source: '真题', year: 2023, tags: ['药理学', '化疗', '链霉素']
   }
 ];
 
