@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Card, Button, Radio, Checkbox, Space, Typography, Progress, Tag, message, Result, Row, Col, Statistic } from 'antd';
+import { Card, Button, Radio, Space, Typography, Progress, Tag, message, Result, Row, Col, Statistic } from 'antd';
 import { ArrowLeftOutlined, ArrowRightOutlined, CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { questionAPI } from '../../services/api';
@@ -202,35 +202,56 @@ const QuestionPractice: React.FC = () => {
 
           {/* 选项 - 多选题 */}
           {isMultiple && (
-            <Checkbox.Group
-              value={selectedAnswers}
-              disabled={showAnswer}
-              onChange={(checkedValues) => setSelectedAnswers(checkedValues as string[])}
-              style={{ width: '100%' }}
-            >
+            <div style={{ width: '100%' }}>
+              <div style={{ marginBottom: 8, padding: '8px 12px', background: '#f0f5ff', borderRadius: 8, border: '1px solid #adc6ff' }}>
+                <Text type="secondary" style={{ fontSize: 13 }}>
+                  💡 多选题：点击选项可选中/取消，已选 <Text strong style={{ color: '#1890ff' }}>{selectedAnswers.length}</Text> 项
+                </Text>
+              </div>
               <Space direction="vertical" style={{ width: '100%' }}>
                 {currentQuestion.options?.map((option: any) => {
                   const isSelected = selectedAnswers.includes(option.label);
                   const isCorrectOption = option.isCorrect;
                   return (
-                    <Checkbox key={option.label} value={option.label} style={{
-                      width: '100%', padding: '12px 16px', margin: '4px 0',
-                      border: '1px solid #d9d9d9', borderRadius: 8,
-                      backgroundColor: showAnswer
-                        ? isCorrectOption ? '#f6ffed' : isSelected ? '#fff2f0' : '#fff'
-                        : isSelected ? '#e6f7ff' : '#fff'
-                    }}>
+                    <div
+                      key={option.label}
+                      onClick={() => {
+                        if (showAnswer) return;
+                        setSelectedAnswers(prev =>
+                          prev.includes(option.label)
+                            ? prev.filter(a => a !== option.label)
+                            : [...prev, option.label].sort()
+                        );
+                      }}
+                      style={{
+                        width: '100%', padding: '12px 16px', cursor: showAnswer ? 'default' : 'pointer',
+                        border: `2px solid ${isSelected ? '#1890ff' : '#d9d9d9'}`, borderRadius: 8,
+                        backgroundColor: showAnswer
+                          ? isCorrectOption ? '#f6ffed' : isSelected ? '#fff2f0' : '#fff'
+                          : isSelected ? '#e6f7ff' : '#fff',
+                        transition: 'all 0.2s',
+                        display: 'flex', alignItems: 'center'
+                      }}>
+                      <div style={{
+                        width: 22, height: 22, borderRadius: 4, marginRight: 12, flexShrink: 0,
+                        border: `2px solid ${isSelected ? '#1890ff' : '#d9d9d9'}`,
+                        backgroundColor: isSelected ? '#1890ff' : '#fff',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        transition: 'all 0.2s'
+                      }}>
+                        {isSelected && <span style={{ color: '#fff', fontSize: 14, fontWeight: 'bold' }}>✓</span>}
+                      </div>
                       <Space>
                         <Text strong>{option.label}.</Text>
                         <Text>{option.content}</Text>
                         {showAnswer && isCorrectOption && <CheckCircleOutlined style={{ color: '#52c41a' }} />}
                         {showAnswer && isSelected && !isCorrectOption && <CloseCircleOutlined style={{ color: '#ff4d4f' }} />}
                       </Space>
-                    </Checkbox>
+                    </div>
                   );
                 })}
               </Space>
-            </Checkbox.Group>
+            </div>
           )}
 
           {/* 答案解析 */}
